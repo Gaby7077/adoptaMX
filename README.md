@@ -27,6 +27,11 @@ An application deidcated to help organizations and people in general to adopt a 
 * Google maps
 * Purina (optional)
 
+## Social Media
+* Twitter : @adoptamx_
+* Faceboook: @holadoptamx
+* Instagram: @adoptamx_
+
 # Tasks
 * Abelardo .- API google maps
 * Juventino .- API Twitter
