@@ -1,10 +1,10 @@
 # adoptaMX
 
-#Team members: 
-*Gustavo Canales 
-*Juventino Alanis
-*Abelardo Villalobos
-*Gabriela Martinez
+# Team members: 
+- Gustavo Canales 
+- Juventino Alanis
+- Abelardo Villalobos
+- Gabriela Martinez
 
 An application deidcated to help organizations and people in general to adopt a pet. This app will show the exact location of the pet put out for adoption along with a description and a picture of the dog, cat or any other animal, we don't discriminate. We are also going to link out our page to different social media platforms to stay in  contact with possible adopters and follow up on the adoptions.
 
