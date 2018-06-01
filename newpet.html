@@ -19,53 +19,95 @@
 </head>
 <body>
     <div class="container">
+
+            <div class="row">
+                <H1 class="center">FORMATO PARA DAR DE ALTA A TU MASCOTA</H1>
+            </div>
+
+            <div class="row">
+                <h3 class="left">DATOS DEL HUMANO</h3>
+            </div> 
+
         <div class="row">
-            <H1 class="center">FORMATO PARA DAR DE ALTA A TU MASCOTA</H1>
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="nombre" type="text" class="validate">
+                    <label for="first_name">Nombres</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="apellido" type="text" class="validate">
+                    <label for="last_name">Apellidos</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="celular" type="text" class="validate">
+                    <label for="celular">Celular</label>
+                </div>
+                <div class="input-field col s6">
+                        <input id="email" type="email" class="validate">
+                        <label for="email">Email</label>
+                </div>
+            </div>
         </div>
-        <div class="row">
-            <h3 class="left">DATOS DEL HUMANO</h3>
-        <div class="row">
-                <form class="col s12">
-                  <div class="row">
-                    <div class="input-field col s6">
-                      <input id="nombre" type="text" class="validate">
-                      <label for="first_name">Nombres</label>
-                    </div>
-                    <div class="input-field col s6">
-                      <input id="apellido" type="text" class="validate">
-                      <label for="last_name">Apellidos</label>
-                    </div>
-                  </div>
-                  <div class="row">
+
+            <div class="row">
+                <h3 class="left">DATOS DE LA MASCOTA</h3>
+            </div>
+                <div class="row">
+                    <div class="col s12">
                         <div class="input-field col s6">
-                          <input id="celular" type="text" class="validate">
-                          <label for="celular">Celular</label>
+                            <input id="nombremascota" type="text" class="validate">
+                            <label for="first_name">Nombre</label>
                         </div>
                         <div class="input-field col s6">
-                                <input id="email" type="email" class="validate">
-                                <label for="email">Email</label>
+                            <input id="raza" type="text" class="validate">
+                            <label for="raza">Raza</label>
                         </div>
-                      </div>
+                    </div>
                 </div>
                 <div class="row">
-                        <h3 class="left">DATOS DE LA MASCOTA</h3>
-                  <div class="row">
-                    <div class="input-field col s12">
-                                    <div class="input-field col s6">
-                                      <input id="nombremascota" type="text" class="validate">
-                                      <label for="first_name">Nombre</label>
-                                    </div>
-                                    <div class="row">
-                                    <div class="input-field col s6">
-                                      <input id="raza" type="text" class="validate">
-                                      <label for="raza">Raza</label>
-                                    </div>
-                                  </div>
-
-                  </div>
-                </form>
-              </div>
-            </div>
+                    <div class="col s12" id="locationField">
+                        <input id="autocomplete" placeholder="Escribe tu dirección" onFocus="geolocate()" type="text"></input>
+                        <label for="autocomplete">Comienza a escribir tu dirección para autocompletar</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col s12">
+                        <div class="label input-field col s6">
+                            <input class="field" id="route" placeholder="Calle o Ave." disabled="true"></input>
+                            <label for="street"></label>
+                        </div>
+                        <div class=" label input-field col s6">
+                            <input class="field" id="street_number" placeholder="Número" disabled="true"></input></td>
+                            <label for="street_number"></label>
+                        </div>
+                    </div>
+                    <div class=" col s12">
+                        <div class="label input-field col s6">
+                                <input class="field" id="locality" placeholder="Ciudad" disabled="true"></input>
+                            <label for="city"></label>
+                        </div>
+                        <div class=" label input-field col s6">
+                            <input class="field" id="postal_code" placeholder="Codigo Postal" disabled="true"></input>
+                            <label for="zipcode"></label>
+                        </div>
+                    </div>
+                    <div class=" col s12">
+                        <div class="label input-field col s6">
+                            <input class="field" id="administrative_area_level_1" placeholder="Estado" disabled="true"></input>
+                            <label for="city"></label>
+                        </div>
+                        <div class=" label input-field col s6">
+                            <input class="field" id="country" placeholder="Pais" disabled="true"></input>
+                            <label for="country"></label>
+                        </div>
+                    </div>
+                </div>
+    </form>
+</div>
+</div>
                   
             
 
@@ -74,48 +116,16 @@
 
 
        
-                  <div id="locationField">
-                    <input id="autocomplete" placeholder="Enter your address"
-                           onFocus="geolocate()" type="text"></input>
-                  </div>
+
               
-                  <table id="address">
-                    <tr>
-                      <td class="label">Street address</td>
-                      <td class="slimField"><input class="field" id="street_number"
-                            disabled="true"></input></td>
-                      <td class="wideField" colspan="2"><input class="field" id="route"
-                            disabled="true"></input></td>
-                    </tr>
-                    <tr>
-                      <td class="label">City</td>
-                      <!-- Note: Selection of address components in this example is typical.
-                           You may need to adjust it for the locations relevant to your app. See
-                           https://developers.google.com/maps/documentation/javascript/examples/places-autocomplete-addressform
-                      -->
-                      <td class="wideField" colspan="3"><input class="field" id="locality"
-                            disabled="true"></input></td>
-                    </tr>
-                    <tr>
-                      <td class="label">State</td>
-                      <td class="slimField"><input class="field"
-                            id="administrative_area_level_1" disabled="true"></input></td>
-                      <td class="label">Zip code</td>
-                      <td class="wideField"><input class="field" id="postal_code"
-                            disabled="true"></input></td>
-                    </tr>
-                    <tr>
-                      <td class="label">Country</td>
-                      <td class="wideField" colspan="3"><input class="field"
-                            id="country" disabled="true"></input></td>
-                    </tr>
-                  </table>
+                 
               
       <!-- Google Maps API New Pet Form -->
+    <script src="./assets/js/newpet.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_vNu93PxnSwg-fnUBnWk_03HuqwqC7Cc&libraries=places&callback=initAutocomplete" async defer></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
         <!-- New Pet Form Java Script -->
-    <script src="./assets/js/newpet.js" async defer></script>
+
 </body>
 </html>
