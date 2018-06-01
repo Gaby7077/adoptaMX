@@ -42,7 +42,7 @@
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="celular" type="text" class="validate">
+                    <input id="celular" type="tel" class="validate">
                     <label for="celular">Celular</label>
                 </div>
                 <div class="input-field col s6">
@@ -66,6 +66,16 @@
                             <label for="raza">Raza</label>
                         </div>
                     </div>
+                    <div class="col s12">
+                            <div class="input-field col s6">
+                                <input id="nombremascota" type="text" class="validate">
+                                <label for="first_name">Edad</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="raza" type="text" class="validate">
+                                <label for="raza">Algo mas</label>
+                            </div>
+                        </div>
                 </div>
                 <div class="row">
                     <div class="col s12" id="locationField">
@@ -105,6 +115,9 @@
                         </div>
                     </div>
                 </div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+                        <i class="material-icons right">enviar</i>
+                </button>
     </form>
 </div>
 </div>
@@ -121,6 +134,7 @@
                  
               
       <!-- Google Maps API New Pet Form -->
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
     <script src="./assets/js/newpet.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_vNu93PxnSwg-fnUBnWk_03HuqwqC7Cc&libraries=places&callback=initAutocomplete" async defer></script>
     <!-- Compiled and minified JavaScript -->
