@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+    <script>
+    // Initialize Firebase
+    var config = {
+    apiKey: "AIzaSyC8wpnAhlZtsN2XbywIK2QlWnq7JmM0pQY",
+    authDomain: "muestradb.firebaseapp.com",
+    databaseURL: "https://muestradb.firebaseio.com",
+    projectId: "muestradb",
+    storageBucket: "muestradb.appspot.com",
+    messagingSenderId: "1071920552380"
+  };
+  firebase.initializeApp(config);
+    </script>
+    <script type="text/javascript">
+        initApp = function() {
+          firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+              // User is signed in.
+              var displayName = user.displayName;
+              var email = user.email;
+              var emailVerified = user.emailVerified;
+              var photoURL = user.photoURL;
+              var uid = user.uid;
+              var phoneNumber = user.phoneNumber;
+              var providerData = user.providerData;
+
+              $("#nombre").text("Nombre: "+displayName);
+              $("#correo").text("Correo: "+ email);
+              $("#direccion").text("Dirección: ");
+              $("#telefono").text("Telefono: ");
+
+
+              user.getIdToken().then(function(accessToken) {
+                  console.log("-- User Signed In --");
+                  console.log("Account Info");
+                  console.log({
+                    displayName: displayName,
+                    email: email,
+                    emailVerified: emailVerified,
+                    phoneNumber: phoneNumber,
+                    photoURL: photoURL,
+                    uid: uid,
+                    accessToken: accessToken,
+                    providerData: providerData
+                    });
+                    firebase.database().ref().child("usuarios").child(uid).set({
+                displayName: displayName,
+                    email: email,
+                    emailVerified: emailVerified,
+                    phoneNumber: " ",
+                    photoURL: " ",
+                    uid: uid,
+                    accessToken: accessToken,
+                    providerData: providerData
+
+    });
+
+     firebase.database().ref().child("pets").child(uid).set({
+                displayName: displayName,
+                    email: email
+
+    });
+
+
+                
+              });
+
+
+               
+            } else {
+              // User is signed out.
+              console.log("-- User Signed Out --");
+              window.location.href='login.html';
+              //document.getElementById('sign-in-status').textContent = 'Signed out';
+              //document.getElementById('sign-in').textContent = 'Sign in';
+              //document.getElementById('account-details').textContent = 'null';
+            }
+          }, function(error) {
+            console.log(error);
+          });
+        };
+  
+        window.addEventListener('load', function() {
+          initApp()
+        });
+
+     
+      </script>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Logo</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a href="map.html">Encuentra a tu amigo</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contacto</a>
+                </li>
+                <li>
+                    <a href="profile.html">Profile</a>
+                  </li>
+                
+                <li>
+                    <a href="login.html">login</a>
+                  </li>
+                  <li>
+                      <a href="newpet.html">Add a pet</a>
+                    </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <main>
+        <h3 id="Welcome">Welcome!</h3>
+        <h3 id="nombre"></h3>
+        <h3 id="correo"></h3>
+        <h3 id="direccion"></h3>
+        <h3 id="telefono"></h3>
+        <button class="editar"style="font-size: 30px;">EDITAR</button>
+
+
+    </main>
+
+    <footer class="page-footer">
+                   
+            <div class="footer-copyright">
+              <div class="container">
+              © 2018 Copyright Text
+              <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+              </div>
+            </div>
+          </footer>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+    
+</body>
+</html>
