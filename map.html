@@ -8,6 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Encuentra a tu amigo</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
   <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
@@ -57,6 +58,7 @@
             </div>
           </footer>
           <script>
+    
             // Initialize Firebase
             var config = {
         apiKey: "AIzaSyC8wpnAhlZtsN2XbywIK2QlWnq7JmM0pQY",
@@ -72,7 +74,9 @@
                 initApp = function() {
                   firebase.auth().onAuthStateChanged(function(user) {
                     if (user) {
-                    
+              
+             
+
                     } else {
                       // User is signed out.
                       console.log("-- User Signed Out --");
