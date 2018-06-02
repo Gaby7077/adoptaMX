@@ -26,8 +26,14 @@
 </body>
 <script>
     // FirebaseUI config.
-    
-    var uiConfig = {
+    initApp = function() {
+                  firebase.auth().onAuthStateChanged(function(user) {
+                    if (user) {
+              window.location.href='profile.html';
+
+
+                    } else {
+                        var uiConfig = {
         signInSuccessUrl: 'profile.html',
         signInOptions: [
           // Leave the lines as is for the providers you want to offer your users.
@@ -43,5 +49,15 @@
       var ui = new firebaseui.auth.AuthUI(firebase.auth());
       // The start method will wait until the DOM is loaded.
       ui.start('#login-ui', uiConfig);
+                    }
+                  }, function(error) {
+                    console.log(error);
+                  });
+                };
+          
+                window.addEventListener('load', function() {
+                  initApp()
+                });
+   
 </script>
 </html>
