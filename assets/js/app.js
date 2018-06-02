@@ -1,15 +1,48 @@
-
-
+// Program variables
 var map;
 var marker = [];
-var images = ["assets/images/perro1.jpg", "assets/images/perro2.jpg"]
 var infowindow;
+var currentLat;
+var currentLng;
+
+//Start Firebase database
+var config = {
+    apiKey: "AIzaSyBPy8Hgn4T3llG8H-2O2tOGtyRV3GRWpPg",
+    authDomain: "pruebaadoptamx.firebaseapp.com",
+    databaseURL: "https://pruebaadoptamx.firebaseio.com",
+    projectId: "pruebaadoptamx",
+    storageBucket: "pruebaadoptamx.appspot.com",
+    messagingSenderId: "234653857834"
+};
+
+firebase.initializeApp(config);
+
+var dataRef = firebase.database();
+
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } 
+}
+
+function showPosition(position) {
+    currentLat= position.coords.latitude; 
+    currentLng= position.coords.longitude;
+
+initMap();
+   
+}
+
+getLocation();
+
+console.log(currentLat);
 
 
 function initMap() {
     map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 12,
-        center: new google.maps.LatLng(25.68, -100.32),
+        zoom: 9,
+        center: new google.maps.LatLng(currentLat, currentLng),
         mapTypeId: 'roadmap'
     });
 
@@ -72,57 +105,137 @@ function initMap() {
         map.fitBounds(bounds);
     });
 
-    //To add locations to the map
-    var locations = [[25.64, -100.32], [25.63, -100.52]];
-    for (var i = 0; i < locations.length; i++) {
+    //To add locations to the map from the databse in Firebase
+    dataRef.ref("/AddChild").on("child_added", function (childSnapshot) {
         marker = new google.maps.Marker({
-            position: new google.maps.LatLng(locations[i][0], locations[i][1]),
+            position: new google.maps.LatLng(childSnapshot.val().Lat, childSnapshot.val().Lng),
             map: map,
-            title: "I am marker" + i
+            title: "I am marker"
 
         });
 
-        addInfowindow(i);
+        // Gather the variable from the firebase databse
+        var petName = childSnapshot.val().name;
+        var petRaza = childSnapshot.val().raza;
+        var petAge = childSnapshot.val().age;
+        var petImage = childSnapshot.val().imageurl;
 
-    }
+        // Send the info the infowindow
+
+        addInfowindow(petName, petRaza, petAge, petImage);
+
+
+    })
 
 
 
 }
 
-function addInfowindow(i) {
+function addInfowindow(petName, petRaza, petAge, petImage) {
     //To add the window
-    var infoDiv=$("<div>"); //Main Div
-    infoDiv.attr("class","row"); //Add a Row to the picture and content
-    infoDiv.attr("id","infoStyle"); // Give style to the infowindow
-    var imageDiv=$("<div>"); //Div for appending the image
-    imageDiv.attr("class","col s3"); //Width of 4 col to the imageDiv
-    var imagesource=$("<img>")
-    imagesource.attr("src",images[i]);
-    imagesource.attr("class","imagesize");
-    contentDiv=$("<div>"); //Content Div to go inside infoDiv
-    contentDiv.attr("class","col s6");
-    contentDiv.text("Esto es una prueba");
-    var spaceDiv=$("<div>");
-    spaceDiv.attr("class","col s2")
+    var infoDiv = $("<div>"); //Main Div
+    infoDiv.attr("class", "row"); //Add a Row to the picture and content
+    infoDiv.attr("id", "infoStyle"); // Give style to the infowindow
+    var imageDiv = $("<div>"); //Div for appending the image
+    imageDiv.attr("class", "col s3"); //Width of 4 col to the imageDiv
+    var imagesource = $("<img>")
+    imagesource.attr("src", petImage);
+    imagesource.attr("class", "imagesize");
+    contentDiv = $("<div>"); //Content Div to go inside infoDiv
+    contentDiv.attr("class", "col s6");
+    var firstRowcontent = $("<p>");
+    var secondRowcontent = $("<p>");
+    var thirdRowcontent = $("<p>");
+    var fourhtRowcontent = $("<p>");
+    firstRowcontent.text("Hola soy: ")
+    secondRowcontent.text("Nombre: " + petName);
+    thirdRowcontent.text("Edad: " + petAge);
+    fourhtRowcontent.text("Raza: " + petRaza)
+    contentDiv.append(firstRowcontent);
+    contentDiv.append(secondRowcontent);
+    contentDiv.append(thirdRowcontent);
+    contentDiv.append(fourhtRowcontent);
+    var spaceDiv = $("<div>");
+    spaceDiv.attr("class", "col s3")
     imageDiv.append(imagesource);
     infoDiv.append(imageDiv);
     infoDiv.append(spaceDiv);
     infoDiv.append(contentDiv);
-        
+
     var contentString = infoDiv.prop("outerHTML");
     infowindow = new google.maps.InfoWindow()
-    
-    google.maps.event.addListener(marker,'click', function () {
+
+    google.maps.event.addListener(marker, 'click', function () {
         infowindow.setContent(contentString);
         infowindow.open(map, this);
     });
 }
 
 
-initMap();
 
-//var imagesource = " <img src= '" + images[i] + "' height='90px' width='90px'>";
-//var divString = "<div>Esto es una prueba</div>"
-//var contentString = divString.concat(imagesource);
-//var contentString = divString.concat(imagesource);
+
+// Codigo para probar jalar los datos de firebase
+// Initialize Firebase
+
+
+//Pet Data inital variables
+var name = "";
+var age = "";
+var raza = "";
+var image = "";
+var Lat;
+var Lng;
+
+$("#botonSubmit").on("click", function (event) {
+    event.preventDefault();
+
+    name = $("#name").val().trim();
+    raza = $("#raza").val().trim();
+    age = $("#age").val().trim();
+
+    dataRef.ref("/AddChild").push({
+
+        name: name,
+        raza: raza,
+        age: age
+
+    });
+
+
+})
+
+var fileUpload = document.getElementById("cameraInput")
+
+fileUpload.addEventListener('change', function (evt) {
+    var firstFile = evt.target.files[0] // upload the first file only
+    var storageRef = firebase.storage().ref('photos/myPictureName' + firstFile.name)
+    var uploadTask = storageRef.put(firstFile)
+    uploadTask.on("state_changed", function (snapshot) {
+        var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        console.log(percentage)
+        if (percentage == 100) {
+            console.log("ya estoy al 100")
+            storageRef.getDownloadURL().then(function (url) {
+                console.log(url)
+                name = $("#name").val().trim();
+                raza = $("#raza").val().trim();
+                age = $("#age").val().trim();
+                Lat = $("#Lat").val().trim();
+                Lng = $("#Lng").val().trim();
+                dataRef.ref("/AddChild").push({
+                    name: name,
+                    raza: raza,
+                    age: age,
+                    imageurl: url,
+                    Lat:Lat,
+                    Lng:Lng,
+                })
+            })
+
+        }
+    })
+
+});
+
+
+
