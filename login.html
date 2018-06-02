@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.0.0/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.0.0/firebaseui.css" />
+    <script>
+    // Initialize Firebase
+    var config = {
+    apiKey: "AIzaSyC8wpnAhlZtsN2XbywIK2QlWnq7JmM0pQY",
+    authDomain: "muestradb.firebaseapp.com",
+    databaseURL: "https://muestradb.firebaseio.com",
+    projectId: "muestradb",
+    storageBucket: "muestradb.appspot.com",
+    messagingSenderId: "1071920552380"
+  };
+  firebase.initializeApp(config);
+    </script>
+</head>
+<body>
+    <div id="login-ui"></div>
+</body>
+<script>
+    // FirebaseUI config.
+    
+    var uiConfig = {
+        signInSuccessUrl: 'profile.html',
+        signInOptions: [
+          // Leave the lines as is for the providers you want to offer your users.
+          //firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+          firebase.auth.EmailAuthProvider.PROVIDER_ID,
+          
+        ],
+        // Terms of service url.
+        tosUrl: 'http://pruebas.abecode.com/tos.html'
+      };
+
+      // Initialize the FirebaseUI Widget using Firebase.
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+      // The start method will wait until the DOM is loaded.
+      ui.start('#login-ui', uiConfig);
+</script>
+</html>
