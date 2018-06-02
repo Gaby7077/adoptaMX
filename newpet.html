@@ -11,10 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-
-CODIGO OTRO CAMBIO
-
+      <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 <body>
@@ -89,12 +86,12 @@ CODIGO OTRO CAMBIO
                     </div>
                     <div class="col s12">
                             <div class="input-field col s6">
-                                <input id="nombremascota" type="text" class="validate">
+                                <input id="edad" type="text" class="validate">
                                 <label for="first_name">Edad</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="raza" type="text" class="validate">
-                                <label for="raza">Algo mas</label>
+                                <input id="algomas" type="text" class="validate">
+                                <label for="algomas">Algo mas</label>
                             </div>
                         </div>
                 </div>
@@ -136,12 +133,13 @@ CODIGO OTRO CAMBIO
                         </div>
                     </div>
                 </div>
-                <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
-                        <i class="material-icons right">enviar</i>
+                <button class="btn waves-effect waves-light" id="add-pet" type="submit" name="action">Enviar
+                        <i class="material-icons right">send</i>
                 </button>
     </form>
 </div>
 </div>
+
                   
             
 
@@ -156,11 +154,12 @@ CODIGO OTRO CAMBIO
               
       <!-- Google Maps API New Pet Form -->
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
-    <script src="./assets/js/newpet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_vNu93PxnSwg-fnUBnWk_03HuqwqC7Cc&libraries=places&callback=initAutocomplete" async defer></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
         <!-- New Pet Form Java Script -->
+    <script src="./assets/js/newpet.js"></script>
 
 </body>
 </html>
