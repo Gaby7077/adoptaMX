@@ -67,6 +67,12 @@
 
     });
 
+     firebase.database().ref().child("pets").child(uid).set({
+                displayName: displayName,
+                    email: email
+
+    });
+
 
                 
               });
