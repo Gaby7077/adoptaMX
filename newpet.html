@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Adopt a una mascota</title>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+
+
+
+
+</head>
+<body>
+    <div class="container">
+
+            <div class="row">
+                <H1 class="center">FORMATO PARA DAR DE ALTA A TU MASCOTA</H1>
+            </div>
+
+            <div class="row">
+                <h3 class="left">DATOS DEL HUMANO</h3>
+            </div> 
+
+        <div class="row">
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="nombre" type="text" class="validate">
+                    <label for="first_name">Nombres</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="apellido" type="text" class="validate">
+                    <label for="last_name">Apellidos</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="celular" type="tel" class="validate">
+                    <label for="celular">Celular</label>
+                </div>
+                <div class="input-field col s6">
+                        <input id="email" type="email" class="validate">
+                        <label for="email">Email</label>
+                </div>
+            </div>
+        </div>
+
+            <div class="row">
+                <h3 class="left">DATOS DE LA MASCOTA</h3>
+            </div>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="input-field col s6">
+                            <input id="nombremascota" type="text" class="validate">
+                            <label for="first_name">Nombre</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input id="raza" type="text" class="validate">
+                            <label for="raza">Raza</label>
+                        </div>
+                    </div>
+                    <div class="col s12">
+                            <div class="input-field col s6">
+                                <input id="nombremascota" type="text" class="validate">
+                                <label for="first_name">Edad</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="raza" type="text" class="validate">
+                                <label for="raza">Algo mas</label>
+                            </div>
+                        </div>
+                </div>
+                <div class="row">
+                    <div class="col s12" id="locationField">
+                        <input id="autocomplete" placeholder="Escribe tu dirección" onFocus="geolocate()" type="text"></input>
+                        <label for="autocomplete">Comienza a escribir tu dirección para autocompletar</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col s12">
+                        <div class="label input-field col s6">
+                            <input class="field" id="route" placeholder="Calle o Ave." disabled="true"></input>
+                            <label for="street"></label>
+                        </div>
+                        <div class=" label input-field col s6">
+                            <input class="field" id="street_number" placeholder="Número" disabled="true"></input></td>
+                            <label for="street_number"></label>
+                        </div>
+                    </div>
+                    <div class=" col s12">
+                        <div class="label input-field col s6">
+                                <input class="field" id="locality" placeholder="Ciudad" disabled="true"></input>
+                            <label for="city"></label>
+                        </div>
+                        <div class=" label input-field col s6">
+                            <input class="field" id="postal_code" placeholder="Codigo Postal" disabled="true"></input>
+                            <label for="zipcode"></label>
+                        </div>
+                    </div>
+                    <div class=" col s12">
+                        <div class="label input-field col s6">
+                            <input class="field" id="administrative_area_level_1" placeholder="Estado" disabled="true"></input>
+                            <label for="city"></label>
+                        </div>
+                        <div class=" label input-field col s6">
+                            <input class="field" id="country" placeholder="Pais" disabled="true"></input>
+                            <label for="country"></label>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+                        <i class="material-icons right">enviar</i>
+                </button>
+    </form>
+</div>
+</div>
+                  
+            
+
+
+
+
+
+       
+
+              
+                 
+              
+      <!-- Google Maps API New Pet Form -->
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+    <script src="./assets/js/newpet.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_vNu93PxnSwg-fnUBnWk_03HuqwqC7Cc&libraries=places&callback=initAutocomplete" async defer></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+        <!-- New Pet Form Java Script -->
+
+</body>
+</html>
