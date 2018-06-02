@@ -1,20 +1,65 @@
 
+
 .row {
     margin-top: 50px;
-    color: darkmagenta;
-  
-    
+    color: darkmagenta;  
 }
 
 main {
   
     flex: 1 0 auto;
+    background-image:url("../images/fondo3op2.jpg");
+    background-size: 30%;
+    background-position-y: 20px;
+    
+
+
 }
 
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
+    
   }
 
   
+#logo {
+    height: 75px;
+    width: auto;
+    margin-left: 30px;
+}
+
+
+.card {
+    margin-left: 50px;
+}
+
+#dog {
+    height: auto;
+    width: 700px;
+}
+
+#paw {
+    height: 40px;
+    width: auto;
+    filter: grayscale(100%)
+}
+
+
+
+#dogo {
+    height: 40px;
+    width: auto;
+}
+
+.stats {
+    margin-left: 250px;
+    margin-top: 180px;
+}
+
+.icons {
+    height: 200px;
+    width: auto;
+}
+
