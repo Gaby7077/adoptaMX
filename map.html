@@ -2,12 +2,15 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Encuentra a tu amigo</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Encuentra a tu amigo</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css">
+
 
 </head>
 
@@ -29,6 +32,16 @@
                     <li>
                       <a href="contact.html">Contacto</a>
                     </li>
+                    <li>
+                      <a href="profile.html">Profile</a>
+                    </li>
+                  
+                  <li>
+                      <a href="login.html">login</a>
+                    </li>
+                    <li>
+                        <a href="newpet.html">Add a pet</a>
+                      </li>
                   </ul>
                 </div>
               </nav>
@@ -48,7 +61,45 @@
               </div>
             </div>
           </footer>
+          <script>
+    
+            // Initialize Firebase
+            var config = {
+        apiKey: "AIzaSyC8wpnAhlZtsN2XbywIK2QlWnq7JmM0pQY",
+        authDomain: "muestradb.firebaseapp.com",
+        databaseURL: "https://muestradb.firebaseio.com",
+        projectId: "muestradb",
+        storageBucket: "muestradb.appspot.com",
+        messagingSenderId: "1071920552380"
+        };
+        firebase.initializeApp(config);
+            </script>
+            <script type="text/javascript">
+                initApp = function() {
+                  firebase.auth().onAuthStateChanged(function(user) {
+                    if (user) {
+              
+                   
 
+                    } else {
+                      // User is signed out.
+                      console.log("-- User Signed Out --");
+                      window.location.href='login.html';
+                      //document.getElementById('sign-in-status').textContent = 'Signed out';
+                      //document.getElementById('sign-in').textContent = 'Sign in';
+                      //document.getElementById('account-details').textContent = 'null';
+                    }
+                  }, function(error) {
+                    console.log(error);
+                  });
+                };
+          
+                window.addEventListener('load', function() {
+                  initApp()
+                });
+        
+             
+              </script>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
