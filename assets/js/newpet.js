@@ -1,20 +1,78 @@
+$(document).ready(function() {
+
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyC8wpnAhlZtsN2XbywIK2QlWnq7JmM0pQY",
+        authDomain: "muestradb.firebaseapp.com",
+        databaseURL: "https://muestradb.firebaseio.com",
+        projectId: "muestradb",
+        storageBucket: "muestradb.appspot.com",
+        messagingSenderId: "1071920552380"
+        };
+        firebase.initializeApp(config);
+                initApp = function() {
+                  firebase.auth().onAuthStateChanged(function(user) {
+                    if (user) {
+                    
+
+                    } else {
+                      // User is signed out.
+                      console.log("-- User Signed Out --");
+                      window.location.href='login.html';
+                      //document.getElementById('sign-in-status').textContent = 'Signed out';
+                      //document.getElementById('sign-in').textContent = 'Sign in';
+                      //document.getElementById('account-details').textContent = 'null';
+                    }
+                  }, function(error) {
+                    console.log(error);
+                  });
+                };
+
+                window.addEventListener('load', function() {
+                    initApp()
+                  });
+
+
+
+
+
+
+
+
+
 /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
 ////////////// DATABASE NEW PET FORM/////////////////////////
 /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
- var config = {
-    apiKey: "AIzaSyC8wpnAhlZtsN2XbywIK2QlWnq7JmM0pQY",
-    authDomain: "muestradb.firebaseapp.com",
-    databaseURL: "https://muestradb.firebaseio.com",
-    projectId: "muestradb",
-    storageBucket: "muestradb.appspot.com",
-    messagingSenderId: "1071920552380"
-  };
-  firebase.initializeApp(config);
 
-  
 
+  $("#add-pet").on("click", function(event) {
+    // prevent page from refreshing when form tries to submit itself
+    event.preventDefault();
+
+    var nameuser = $("#nombre").val().trim();
+    var apellido = $("#apellido").val().trim();
+    var celular = $("#celular").val().trim();
+    var email = $("#email").val().trim();
+    var namepet = $("#nombremascota").val().trim();
+    var raza = $("#raza").val().trim();
+    var email = $("#edad").val().trim();
+    var email = $("#algomas").val().trim();
+    var street = $("#route").val().trim();
+    var number = $("#street_number").val().trim();
+    var colonia = $("#locality").val().trim();
+    var postalcode = $("#postal_code").val().trim();
+    var city = $("#administrative_area_level_1").val().trim();
+    var country = $("#country").val().trim();
+
+    console.log(name);
+  }) 
+
+
+
+
+})
 
 /////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////
@@ -87,3 +145,6 @@ function geolocate() {
     });
     }
 }
+
+
+
