@@ -73,7 +73,7 @@ function initMap() {
     });
 
     //To add locations to the map
-    var locations = [[25.64, -100.32], [25.63, -100.32]];
+    var locations = [[25.64, -100.32], [25.63, -100.52]];
     for (var i = 0; i < locations.length; i++) {
         marker = new google.maps.Marker({
             position: new google.maps.LatLng(locations[i][0], locations[i][1]),
@@ -92,18 +92,37 @@ function initMap() {
 
 function addInfowindow(i) {
     //To add the window
-    var imagesource = " <img src= '" + images[i] + "' height='90px' width='90px'>";
-    var divString = "<div>Esto es una prueba</div>"
-    var contentString = divString.concat(imagesource);
+    var infoDiv=$("<div>"); //Main Div
+    infoDiv.attr("class","row"); //Add a Row to the picture and content
+    infoDiv.attr("id","infoStyle"); // Give style to the infowindow
+    var imageDiv=$("<div>"); //Div for appending the image
+    imageDiv.attr("class","col s3"); //Width of 4 col to the imageDiv
+    var imagesource=$("<img>")
+    imagesource.attr("src",images[i]);
+    imagesource.attr("class","imagesize");
+    contentDiv=$("<div>"); //Content Div to go inside infoDiv
+    contentDiv.attr("class","col s6");
+    contentDiv.text("Esto es una prueba");
+    var spaceDiv=$("<div>");
+    spaceDiv.attr("class","col s2")
+    imageDiv.append(imagesource);
+    infoDiv.append(imageDiv);
+    infoDiv.append(spaceDiv);
+    infoDiv.append(contentDiv);
+        
+    var contentString = infoDiv.prop("outerHTML");
     infowindow = new google.maps.InfoWindow()
     
     google.maps.event.addListener(marker,'click', function () {
         infowindow.setContent(contentString);
-        infowindow.open(map, marker);
+        infowindow.open(map, this);
     });
 }
 
 
 initMap();
 
-
+//var imagesource = " <img src= '" + images[i] + "' height='90px' width='90px'>";
+//var divString = "<div>Esto es una prueba</div>"
+//var contentString = divString.concat(imagesource);
+//var contentString = divString.concat(imagesource);

@@ -46,3 +46,12 @@ main {
   #pac-input:focus {
     border-color: #4d90fe;
   }
+
+  .imagesize{
+    height:90px;
+    width:90px;
+  }
+
+  #infoStyle{
+    height: 60px;
+  }
