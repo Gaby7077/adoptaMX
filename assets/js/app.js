@@ -219,23 +219,6 @@ var image = "";
 var Lat;
 var Lng;
 
-$("#botonSubmit").on("click", function (event) {
-    event.preventDefault();
-
-    name = $("#name").val().trim();
-    raza = $("#raza").val().trim();
-    age = $("#age").val().trim();
-
-    dataRef.ref("/AddChild").push({
-
-        name: name,
-        raza: raza,
-        age: age
-
-    });
-
-
-})
 
 var fileUpload = document.getElementById("cameraInput")
 
