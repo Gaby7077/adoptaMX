@@ -10,98 +10,151 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Fira+Sans:400,600|Jua|Montserrat:600,700|Nunito|Righteous|Roboto:400,500"
+        rel="stylesheet">
+
 </head>
 
 <body>
 
-        <nav>
-                <div class="nav-wrapper  blue lighten-3">
-                  <a href="index.html" class="brand-logo">
-                    <img id="logo" src="assets/images/AdoptaMX_horizontal.png" alt="adoptaMX">
-                  </a>
-            
-                  <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li>
-                      <a href="map.html">Encuentra a tu amigo</a>
-                    </li>
-                    <li>
-                      <a href="catalogo.html">Catalogo</a>
-                    </li>
-                    <li>
-                      <a href="contact.html">Contacto</a>
-                    </li>
-                    <li>
-                        <a href="profile.html">Profile</a>
-                      </li>
-                    
-                    <li>
-                        <a href="login.html">login</a>
-                      </li>
-                      <li>
-                            <a href="newpet.html">Add a pet</a>
-                          </li>
-                  </ul>
-                </div>
-              </nav>
+
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo">
+                <img id="logo" src="assets/images/logo_perro.png" alt="adoptaMX">
+            </a>
+        </div>
+    </nav>
+
+
+
+    <div class="fixed-action-btn" id="boton-test2">
+        <a class="btn-floating btn-large blue darken-3">
+            <i class="large material-icons">format_align_justify</i>
+        </a>
+        <ul>
+            <li>
+                <a class="btn-floating red tooltipped blue lighten-3" data-position="bottom" data-tooltip="Encuentra a tu amigo"
+                    href="map.html">
+                    <i class="material-icons">pets</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating tooltipped blue lighten-2" data-position="bottom" data-tooltip="Catalogo" href="catalogo.html">
+                    <i class="material-icons">photo_library</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating tooltipped blue lighten-1" data-position="bottom" data-tooltip="Perfil" href="profile.html">
+                    <i class="material-icons">account_circle</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating tooltipped blue" data-position="bottom" data-tooltip="Login" href="login.html">
+                    <i class="material-icons">vpn_key</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating tooltipped  blue darken-1" data-position="bottom" data-tooltip="Add a pet" href="newpet.html">
+                    <i class="material-icons">queue</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating tooltipped  blue darken-2" data-position="bottom" data-tooltip="Contacto" href="contact.html">
+                    <i class="material-icons">record_voice_over</i>
+                </a>
+            </li>
+        </ul>
+    </div>
 
 
 
 
 
 
-<main>
-    <div class="container">
-        <div class="row">
 
-            <div class="col s12 m6 l6">
 
-                <div class="row">
-                    <div class="col s12 m7">
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="assets/images/fondo4.jpg">
-                                <span class="card-title">Card Title</span>
-                            </div>
-                            <div class="card-content">
-                                <p>I am a very simple card. I am good at containing small bits of information. I am convenient
-                                    because I require little markup to use effectively.</p>
-                            </div>
+    <main>
 
-                        </div>
+        <div class="row " id="fotos">
+            <div class="col s12 m6 l3">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="assets/images/otis.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Otis
+                            <i class="material-icons right">more_vert</i>
+                        </span>
+
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Tobias
+                            <i class="material-icons right">close</i>
+                        </span>
+                        <p>Here is some more information about this product that is only revealed once clicked on.</p>
                     </div>
                 </div>
             </div>
+            <div class="col s12 m6 l3">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="assets/images/tobias.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Tobias
+                            <i class="material-icons right">more_vert</i>
+                        </span>
 
-            <div class="col s12 m6 l6">
-                <div class="row">
-                    <div class="col s12 m7">
-                        <div class="card">
-                            <div class="card-image">
-                                <img src="assets/images/fondo.jpg">
-                                <span class="card-title">Card Title</span>
-                            </div>
-                            <div class="card-content">
-                                <p>I am a very simple card. I am good at containing small bits of information. I am convenient
-                                    because I require little markup to use effectively.</p>
-                            </div>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Card Title
+                            <i class="material-icons right">close</i>
+                        </span>
+                        <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6 l3">
+                <div class="card">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="assets/images/tomasa.jpg">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">Tomasa
+                            <i class="material-icons right">more_vert</i>
+                        </span>
 
-                        </div>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Card Title
+                            <i class="material-icons right">close</i>
+                        </span>
+                        <p>Here is some more information about this product that is only revealed once clicked on.</p>
                     </div>
                 </div>
             </div>
 
         </div>
-    </div>
-</main>
+
+
+    </main>
+
+
+
+
     <footer class="page-footer  blue lighten-3">
-                   
-            <div class="footer-copyright" >
-              <div class="container">
-              © 2018 Copyright Text
-              <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-              </div>
+
+        <div class="footer-copyright">
+            <div class="container">
+                © 2018 Copyright Text
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
             </div>
-          </footer>
+        </div>
+    </footer>
 
 
 
@@ -110,7 +163,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-
+    <script src="assets/js/app.js"></script>
 </body>
 
 </html>
