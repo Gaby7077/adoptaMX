@@ -50,16 +50,32 @@
                         <div class="card-image">
                           <img style="margin:auto;width:250px;" src="assets/images/profiledefault.jpeg">
                         </div>
+                        <div style="padding-top:20px;text-align:center;">
+                        <input class="subefoto" type="file" >
+                        </div>
                         <div class="card-content">
                                 <p id="Welcome">Welcome!</p>
-                                <p id="nombre"></p>
-                                <p id="correo"></p>
-                                <p id="direccion"></p>
-                                <p id="telefono"></p>
+                                <p>Nombre</p>
+                                <textarea id="nombre"></textarea>
+                                <p>Correo</p>
+                                <textarea id="correo"></textarea>
+                                <p>Direccion</p>
+                                <p>Calle y Número</p>
+                                <textarea id="calle"></textarea>
+                                <p>Colonia</p>
+                                <textarea id="colonia"></textarea>
+                                <p>Municipio</p>
+                                <textarea id="municipio"></textarea>
+                                <p>Estado</p>
+                                <textarea id="estado"></textarea>
+                                <p>CodioPostal</p>
+                                <textarea id="cp"></textarea>
+                                <p>Telefono</p>
+                                <textarea id="telefono"></textarea>
                         </div>
-                        <div class="card-action">
-                                <button class="btn-large  editar" style="font-size: 20px;">EDITAR</button>
-                                <button class="btn-large  logout" style="float:right;">LOGOUT</button>
+                        <div class="card-action">   
+                                <button class="btn-large  guardar" style="font-size: 20px;">Guardar</button>
+                                <button class="btn-large  editar logout" style="float:right;">LOGOUT</button>
                         </div>
                       </div>
                     </div>
@@ -90,7 +106,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    <script src="./assets/js/profile.js"></script>
+    <script src="./assets/js/editar.js"></script>
 
 </body>
 
