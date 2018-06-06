@@ -13,62 +13,54 @@
   <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Fira+Sans:400,600|Jua|Montserrat:600,700|Nunito|Righteous|Roboto:400,500"
     rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-
-
 </head>
 
 <body>
 
-<<<<<<< HEAD
     <nav>
         <div class="nav-wrapper">
          <a href="index.html" class="brand-logo">
          <img id="logo" src="assets/images/logo_perro.png" alt="adoptaMX">
          </a>
         </div>
-    </nav>
+    </nav>  
 
-    
+<div class="fixed-action-btn" id="boton-test2">
+  <a class="btn-floating btn-large blue darken-3">
+    <i class="large material-icons">format_align_justify</i>
+  </a>
+  <ul>
+    <li><a class="btn-floating red tooltipped blue lighten-3" data-position="bottom" data-tooltip="Encuentra a tu amigo" href="map.html"><i class="material-icons">pets</i></a></li>
+    <li><a class="btn-floating tooltipped blue lighten-2" data-position="bottom" data-tooltip="Catalogo" href="catalogo.html"><i class="material-icons">photo_library</i></a></li>
+    <li><a class="btn-floating tooltipped blue lighten-1" data-position="bottom" data-tooltip="Perfil" href="profile.html"><i class="material-icons">account_circle</i></a></li>
+    <li><a class="btn-floating tooltipped blue" data-position="bottom" data-tooltip="Login" href="login.html"><i class="material-icons">vpn_key</i></a></li>
+    <li><a class="btn-floating tooltipped  blue darken-1" data-position="bottom" data-tooltip="Add a pet" href="newpet.html"><i class="material-icons">queue</i></a></li>
+    <li><a class="btn-floating tooltipped  blue darken-2" data-position="bottom" data-tooltip="Contacto" href="contact.html"><i class="material-icons">record_voice_over</i></a></li>
+  </ul>
+</div>
+<main>
+    <div class="container">
+      <input City="Address" id="address" type="text" class="validate controls">
+      <div id="map"></div>
+      <!--Este div hay que borrarlo despues-->
+      <div id="divSoloprueba">
+        <input id="name" type="text" class="validate controls">
+        <label for="name">Nombre Mascota</label>
+        <input id="raza" type="text" class="validate controls">
+        <label for="raza">Raza</label>
+        <input id="age" type="text" class="validate controls">
+        <label for="age">Edad</label>
+        <input id="direccion" type="text" class="validate controls">
+        <label for="direccion">Address</label>
+        <br>
 
-          <div class="fixed-action-btn" id="boton-test2">
-                <a class="btn-floating btn-large blue darken-3">
-                  <i class="large material-icons">format_align_justify</i>
-                </a>
-                <ul>
-                  <li><a class="btn-floating red tooltipped blue lighten-3" data-position="bottom" data-tooltip="Encuentra a tu amigo" href="map.html"><i class="material-icons">pets</i></a></li>
-                  <li><a class="btn-floating tooltipped blue lighten-2" data-position="bottom" data-tooltip="Catalogo" href="catalogo.html"><i class="material-icons">photo_library</i></a></li>
-                  <li><a class="btn-floating tooltipped blue lighten-1" data-position="bottom" data-tooltip="Perfil" href="profile.html"><i class="material-icons">account_circle</i></a></li>
-                  <li><a class="btn-floating tooltipped blue" data-position="bottom" data-tooltip="Login" href="login.html"><i class="material-icons">vpn_key</i></a></li>
-                  <li><a class="btn-floating tooltipped  blue darken-1" data-position="bottom" data-tooltip="Add a pet" href="newpet.html"><i class="material-icons">queue</i></a></li>
-                  <li><a class="btn-floating tooltipped  blue darken-2" data-position="bottom" data-tooltip="Contacto" href="contact.html"><i class="material-icons">record_voice_over</i></a></li>
-                </ul>
-              </div>
-              <main>
-                  <div class="container">
-                    <input City="Address" id="address" type="text" class="validate controls">
-                    <div id="map"></div>
-                    <!--Este div hay que borrarlo despues-->
-                    <div id="divSoloprueba">
-                      <input id="name" type="text" class="validate controls">
-                      <label for="name">Nombre Mascota</label>
-                      <input id="raza" type="text" class="validate controls">
-                      <label for="raza">Raza</label>
-                      <input id="age" type="text" class="validate controls">
-                      <label for="age">Edad</label>
-                      <input id="direccion" type="text" class="validate controls">
-                      <label for="direccion">Address</label>
-                      <br>
-              
-                      <input type="file" accept="image/*" capture="camera" id="cameraInput">
-                      <br>
-                      <br>
-              
-                      
-              
-                    </div>
-                    <!--Borrar hasta aqui-->
-                  </div>
-              
+        <input type="file" accept="image/*" capture="camera" id="cameraInput">
+        <br>
+        <br>
+      </div>
+      <!--Borrar hasta aqui-->
+    </div>
+
                 </main>
               
                 <footer class="page-footer blue lighten-3">
