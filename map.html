@@ -9,6 +9,9 @@
   <title>Encuentra a tu amigo</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Fira+Sans:400,600|Jua|Montserrat:600,700|Nunito|Righteous|Roboto:400,500"
+    rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 
@@ -16,60 +19,93 @@
 
 <body>
 
-  <nav>
-    <div class="nav-wrapper  blue lighten-3">
-      <a href="index.html" class="brand-logo">
-        <img id="logo" src="assets/images/AdoptaMX_horizontal.png" alt="adoptaMX">
-      </a>
-
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li>
-          <a href="index.html">Home</a>
-        </li>
-        <li>
-          <a href="catalogo.html">Catalogo</a>
-        </li>
-        <li>
-          <a href="contact.html">Contacto</a>
-        </li>
-        <li>
-          <a href="profile.html">Profile</a>
-        </li>
-
-        <li>
-          <a href="login.html">login</a>
-        </li>
-        <li>
-          <a href="newpet.html">Add a pet</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
 
 
-  <main>
-    <div class="container">
-      <input City="Address" id="address" type="text" class="validate controls">
-      <div id="map"></div>
-   
-    </div>
+    <nav>
+        <div class="nav-wrapper">
+         <a href="index.html" class="brand-logo">
+         <img id="logo" src="assets/images/logo_perro.png" alt="adoptaMX">
+         </a>
+        </div>
+    </nav>
 
-  </main>
+    
 
-  <footer class="page-footer blue lighten-3">
+          <div class="fixed-action-btn" id="boton-test2">
+                <a class="btn-floating btn-large blue darken-3">
+                  <i class="large material-icons">format_align_justify</i>
+                </a>
+                <ul>
+                  <li><a class="btn-floating red tooltipped blue lighten-3" data-position="bottom" data-tooltip="Encuentra a tu amigo" href="map.html"><i class="material-icons">pets</i></a></li>
+                  <li><a class="btn-floating tooltipped blue lighten-2" data-position="bottom" data-tooltip="Catalogo" href="catalogo.html"><i class="material-icons">photo_library</i></a></li>
+                  <li><a class="btn-floating tooltipped blue lighten-1" data-position="bottom" data-tooltip="Perfil" href="profile.html"><i class="material-icons">account_circle</i></a></li>
+                  <li><a class="btn-floating tooltipped blue" data-position="bottom" data-tooltip="Login" href="login.html"><i class="material-icons">vpn_key</i></a></li>
+                  <li><a class="btn-floating tooltipped  blue darken-1" data-position="bottom" data-tooltip="Add a pet" href="newpet.html"><i class="material-icons">queue</i></a></li>
+                  <li><a class="btn-floating tooltipped  blue darken-2" data-position="bottom" data-tooltip="Contacto" href="contact.html"><i class="material-icons">record_voice_over</i></a></li>
+                </ul>
+              </div>
+              <main>
+                  <div class="container">
+                    <input City="Address" id="address" type="text" class="validate controls">
+                    <div id="map"></div>
 
-    <div class="footer-copyright">
-      <div class="container">
-        © 2018 Copyright Text
-        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-      </div>
-    </div>
-  </footer>
+                  </div>
+              
+                </main>
+              
+                <footer class="page-footer blue lighten-3">
+              
+                  <div class="footer-copyright">
+                    <div class="container">
+                      © 2018 Copyright Text
+                      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                    </div>
+                  </div>
+                </footer>
+
+
+
+ 
+          <script>
+    
+            // Initialize Firebase
+            var config = {
+        apiKey: "AIzaSyC8wpnAhlZtsN2XbywIK2QlWnq7JmM0pQY",
+        authDomain: "muestradb.firebaseapp.com",
+        databaseURL: "https://muestradb.firebaseio.com",
+        projectId: "muestradb",
+        storageBucket: "muestradb.appspot.com",
+        messagingSenderId: "1071920552380"
+        };
+        firebase.initializeApp(config);
+            </script>
+            <script type="text/javascript">
+                initApp = function() {
+                  firebase.auth().onAuthStateChanged(function(user) {
+                    if (user) {
+              
+                   
+
+                    } else {
+                      // User is signed out.
+                      console.log("-- User Signed Out --");
+                      window.location.href='login.html';
+                      //document.getElementById('sign-in-status').textContent = 'Signed out';
+                      //document.getElementById('sign-in').textContent = 'Sign in';
+                      //document.getElementById('account-details').textContent = 'null';
+                    }
+                  }, function(error) {
+                    console.log(error);
+                  });
+                };
+          
+                window.addEventListener('load', function() {
+                  initApp()
+                });
+              </script>
+  
   <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
- 
-
-
- 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_xDjxKLXCVAJQSpF4KskemtO5q6gOE1U&libraries=places"></script>
   <!-- Compiled and minified JavaScript -->
   <script src="https://code.jquery.com/jquery.js"></script>
