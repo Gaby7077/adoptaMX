@@ -1,5 +1,5 @@
 
-
+/* la font usada para el body y todos los textos es font-family: 'Nunito', sans-serif;*/
 
 .row {
     margin-top: 150px;
@@ -79,12 +79,10 @@ main {
 
 
 
-.logo-perro {
+
   
-    padding-left: 300px;
-    height: 150px;
-    align-items: center;
-}
+    
+
 
 .logo h4 {
 
@@ -128,4 +126,8 @@ main {
 .social-media {
     height: 40px;
     width: auto;
+}
+
+.left {
+    margin-bottom: 60px;
 }
