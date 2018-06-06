@@ -293,5 +293,8 @@ fileUpload.addEventListener('change', function (evt) {
     })
 
 <<<<<<< HEAD
+});
+=======
+<<<<<<< HEAD
 });*/
 

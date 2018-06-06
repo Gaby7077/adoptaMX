@@ -3,17 +3,11 @@
 /*La font para los titulos es font-family: 'Amatic SC', cursive;
 /*Estilos general del web*/
 
-.row {
-    margin-top: 150px;
-    
-}
-
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
   }
-
 
 
 main {
@@ -26,19 +20,6 @@ main {
 }
 
 
-
-  
-#logo {
-    height: 75px;
-    width: auto;
-    margin-left: 30px;
-    padding-bottom: 20px;
-}
-
-
-.card {
-    margin-left: 50px;
-}
 
 #dog {
     height: auto;
@@ -58,10 +39,6 @@ main {
     width: auto;
 }
 
-.stats {
-    margin-left: 250px;
-    margin-top: 250px;
-}
 
 .icons {
     height: 200px;
@@ -77,6 +54,9 @@ main {
 
 #boton-test {
     top: 5%;
+    float: left;
+
+
 }
 
 
@@ -92,10 +72,17 @@ main {
     background-color: #eff3ff;
 }
 
-#boton-test2 {
-    top:3%;
-}
+#logo-perro {
+    height: 250px;
+    width: auto;
 
+}
+#rowlogo{
+    margin-top: 100px;
+}
+#row1{
+    margin-top: 2em;
+}
 
 .nav-wrapper {
     height: 150px;
@@ -104,18 +91,15 @@ main {
 }
 
 #fotos {
-    margin-left: 250px;
+
     font-family: 'Nunito', sans-serif;
-    margin-bottom: 100px;
+
 }
 
 .contactanos {
     width: 960px;
     margin: auto;
     background: #ffffff;
-    margin-top: 30px;
-    margin-bottom: 50px;
-    padding: 10px;
     
     
 
