@@ -8,8 +8,9 @@ $(document).ready(function() {
         projectId: "muestradb",
         storageBucket: "muestradb.appspot.com",
         messagingSenderId: "1071920552380"
-        };
+      };
         firebase.initializeApp(config);
+        var database = firebase.database();
                 initApp = function() {
                   firebase.auth().onAuthStateChanged(function(user) {
                     if (user) {
@@ -18,7 +19,7 @@ $(document).ready(function() {
               var email = user.email;
               var emailVerified = user.emailVerified;
               var photoURL = user.photoURL;
-              var uid = user.uid;
+              var uid = "prueba" //user.uid;
               var phoneNumber = user.phoneNumber;
               var providerData = user.providerData;
 
@@ -66,21 +67,52 @@ $(document).ready(function() {
     event.preventDefault();
 
     var nameuser = $("#nombre").val().trim();
-    var apellido = $("#apellido").val().trim();
+   // var apellido = $("#apellido").val().trim();
     var celular = $("#celular").val().trim();
     var email = $("#email").val().trim();
     var namepet = $("#nombremascota").val().trim();
     var raza = $("#raza").val().trim();
-    var email = $("#edad").val().trim();
-    var email = $("#algomas").val().trim();
+    var edad = $("#edad").val().trim();
+    var algomas = $("#algomas").val().trim();
     var street = $("#route").val().trim();
     var number = $("#street_number").val().trim();
-    var colonia = $("#locality").val().trim();
+    var city = $("#locality").val().trim();
     var postalcode = $("#postal_code").val().trim();
-    var city = $("#administrative_area_level_1").val().trim();
+    var state = $("#administrative_area_level_1").val().trim();
     var country = $("#country").val().trim();
 
-    console.log(name);
+    var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address="+ street + number +","+ postalcode + city + state +"&key=AIzaSyD_vNu93PxnSwg-fnUBnWk_03HuqwqC7Cc"
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+      }).then(function(response) {
+        var latitude = response.results[0].geometry.location.lat;
+        var longitude = response.results[0].geometry.location.lng;
+        console.log("Latitud "+latitude+ "   Longitud "+longitude);
+
+console.log("sigue database")
+firebase.database().ref().child("pets").child(namepet).set({
+    namepet : namepet,
+    raza : raza,
+    edad : edad,
+    photo : "downloadURL",
+    lat : latitude,
+    lng : longitude,
+    street : street,
+    number : number,
+    city : city,
+    postalcode : postalcode,
+    state : state,
+    country : country,
+    owener : nameuser,
+    celular : celular,
+    email : email
+});
+
+});
+
+
+
   }) 
 
 
@@ -120,6 +152,7 @@ function initAutocomplete() {
     // When the user selects an address from the dropdown, populate the address
     // fields in the form.
     autocomplete.addListener('place_changed', fillInAddress);
+
 }
 
 function fillInAddress() {
@@ -160,5 +193,27 @@ function geolocate() {
     }
 }
 
+$("#postal_code").on("input", function(event) {
+    event.preventDefault();
+    var street = $("#route").val().trim();
+    var number = $("#street_number").val().trim();
+    var city = $("#locality").val().trim();
+    var postalcode = $("#postal_code").val().trim();
+    var state = $("#administrative_area_level_1").val().trim();
+    var country = $("#country").val().trim();
 
+    if (postalcode.length==5){
+        console.log(street+number+postalcode+city+state+country);
+        var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address="+ street + number +","+ postalcode + city + state +"&key=AIzaSyD_vNu93PxnSwg-fnUBnWk_03HuqwqC7Cc"
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+          }).then(function(response) {
+            console.log(response);
+          });
+    }
+
+
+
+});
 

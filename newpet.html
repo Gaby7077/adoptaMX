@@ -37,10 +37,10 @@
                     
                     <li>
                         <a href="login.html">login</a>
-                      </li>
-                      <li>
-                            <a href="newpet.html">Add a pet</a>
-                          </li>
+                    </li>
+                    <li>
+                        <a href="newpet.html">Add a pet</a>
+                    </li>
                   </ul>
                 </div>
               </nav>
@@ -141,6 +141,18 @@
                             <label for="country"></label>
                         </div>
                     </div>
+                    <div class=" col s12">
+                        <div class="label input-field col s6">
+                            <p class="right">Pet Image</p>
+                            <img src="" alt="">
+                        </div>
+                        <div class=" label input-field col s6">
+                            <input type="file" id="pet_image" accept="image/*" capture="camera" id="cameraInput"></input>
+                            <label for="image"></label>     
+                        </div>
+                    </div>
+
+
                 </div>
                 <button class="btn waves-effect waves-light" id="add-pet" type="submit" name="action">Enviar
                         <i class="material-icons right">send</i>
