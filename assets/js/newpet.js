@@ -53,26 +53,28 @@ $(document).ready(function () {
 
 
     // code to upload picture
+    
+        var fileUpload = document.getElementById("pet_image");
+        fileUpload.addEventListener('change', function (evt) {
+            console.log("subir imagen")
+            var firstFile = evt.target.files[0] // upload the first file only
+            var storageRef = firebase.storage().ref('photos/myPictureName ' + useruid + firstFile.name)
+            var uploadTask = storageRef.put(firstFile)
+            uploadTask.on("state_changed", function (snapshot) {
+                var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                console.log(percentage)
+                if (percentage == 100) {
+                    console.log("ya estoy al 100")
+                    storageRef.getDownloadURL().then(function (url) {
+                        console.log("Esta es la imagen " + url);
+                        imageurl = url;
+                        $("#add-pet").removeClass("disabled");
+                    })
+                }
 
-    var fileUpload = document.getElementById("pet_image");
-    fileUpload.addEventListener('change', function (evt) {
-        console.log("subir imagen")
-        var firstFile = evt.target.files[0] // upload the first file only
-        var storageRef = firebase.storage().ref('photos/myPictureName' + firstFile.name)
-        var uploadTask = storageRef.put(firstFile)
-        uploadTask.on("state_changed", function (snapshot) {
-            var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-            console.log(percentage)
-            if (percentage == 100) {
-                console.log("ya estoy al 100")
-                storageRef.getDownloadURL().then(function (url) {
-                    console.log("Esta es la imagen " + url);
-                    imageurl = url;
-                })
-            }
-
+            })
         })
-    })
+    
 
     // variables
 

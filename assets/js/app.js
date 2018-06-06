@@ -1,34 +1,3 @@
-
-
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.fixed-action-btn');
-    var instances = M.FloatingActionButton.init(elems, {
-      direction: 'left'
-    });
-  });
-
-
-  document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.tooltipped');
-    var instances = M.Tooltip.init(elems, options);
-  });
-/*document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('.fixed-action-btn');
-    var instances = M.FloatingActionButton.init(elems, options);
-    var elemstool = document.querySelectorAll('.tooltipped');
-    var instancestool = M.Tooltip.init(elemstool, options);
-});
-
-// Or with jQuery
-
-  $(document).ready(function(){
-    $('.tooltipped').tooltip();
-  });
-$(document).ready(function () {
-    $('.fixed-action-btn').floatingActionButton();
-    $('.tooltipped').tooltip();
-});*/
-
 //Funcionalidad del Mapa
 // Program variables
 var map;
@@ -36,18 +5,7 @@ var marker = [];
 var infowindow;
 var currentLat;
 var currentLng;
-/* ESTO HAY QUE BORRARLO
-//Start Firebase database
-var config = {
-    apiKey: "AIzaSyBPy8Hgn4T3llG8H-2O2tOGtyRV3GRWpPg",
-    authDomain: "pruebaadoptamx.firebaseapp.com",
-    databaseURL: "https://pruebaadoptamx.firebaseio.com",
-    projectId: "pruebaadoptamx",
-    storageBucket: "pruebaadoptamx.appspot.com",
-    messagingSenderId: "234653857834"
-};
 
-firebase.initializeApp(config);*/
 
 var config = {
     apiKey: "AIzaSyC8wpnAhlZtsN2XbywIK2QlWnq7JmM0pQY",
@@ -56,8 +14,8 @@ var config = {
     projectId: "muestradb",
     storageBucket: "muestradb.appspot.com",
     messagingSenderId: "1071920552380"
-  };
-    firebase.initializeApp(config);
+};
+firebase.initializeApp(config);
 
 var dataRef = firebase.database();
 
@@ -78,8 +36,6 @@ function showPosition(position) {
 }
 
 getLocation();
-
-console.log(currentLat);
 
 
 function initMap() {
@@ -209,12 +165,20 @@ function addInfowindow(petName, petRaza, petAge, petImage) {
     var firstRowcontent = $("<div>");
     var secondRowcontent = $("<div>");
     var thirdRowcontent = $("<div>");
+    var fourthRowcontent =$("<a>");
+    fourthRowcontent.attr("class","waves-effect waves-light btn light-blue lighten-1");
+    var emailSign=$("<i>");
+    emailSign.addClass("material-icons center");
+    emailSign.text("email");
+    fourthRowcontent.append(emailSign);
+    var buttonEmail=$("")
     firstRowcontent.text("Mis datos son: ")
     secondRowcontent.text("Edad: " + petAge);
     thirdRowcontent.text("Raza: " + petRaza)
     contentDiv.append(firstRowcontent);
     contentDiv.append(secondRowcontent);
     contentDiv.append(thirdRowcontent);
+    contentDiv.append(fourthRowcontent);
     var spaceDiv = $("<div>");
     spaceDiv.attr("class", "col s3")
     imageDiv.append(imagesource);
@@ -232,69 +196,4 @@ function addInfowindow(petName, petRaza, petAge, petImage) {
 }
 
 
-/* BORRAR 
-
-// Codigo para probar jalar los datos de firebase
-// Initialize Firebase
-
-
-//Pet Data inital variables
-var name = "";
-var age = "";
-var raza = "";
-var image = "";
-var Lat;
-var Lng;
-
-
-var fileUpload = document.getElementById("cameraInput")
-
-fileUpload.addEventListener('change', function (evt) {
-    var firstFile = evt.target.files[0] // upload the first file only
-    var storageRef = firebase.storage().ref('photos/myPictureName' + firstFile.name)
-    var uploadTask = storageRef.put(firstFile)
-    uploadTask.on("state_changed", function (snapshot) {
-        var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        name = $("#name").val().trim();
-        raza = $("#raza").val().trim();
-        age = $("#age").val().trim();
-        direccion = $("#direccion").val().trim();
-
-        var geocoder = new google.maps.Geocoder();
-
-        geocoder.geocode({ 'address': direccion }, function (results, status) {
-
-            if (status == google.maps.GeocoderStatus.OK) {
-                Lat = results[0].geometry.location.lat();
-                Lng = results[0].geometry.location.lng();
-                console.log(Lat);
-                console.log(Lng);
-            }
-        });
-        console.log(percentage)
-        if (percentage == 100) {
-            console.log("ya estoy al 100")
-            storageRef.getDownloadURL().then(function (url) {
-                console.log(url)
-
-
-                dataRef.ref("/AddChild").push({
-                    name: name,
-                    raza: raza,
-                    age: age,
-                    imageurl: url,
-                    direccion: direccion,
-                    Lat: Lat,
-                    Lng: Lng,
-                })
-            })
-
-        }
-    })
-
-<<<<<<< HEAD
-});
-=======
-<<<<<<< HEAD
-});*/
 
