@@ -1,12 +1,34 @@
+<<<<<<< HEAD
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.fixed-action-btn');
+    var instances = M.FloatingActionButton.init(elems, {
+      direction: 'left'
+    });
+  });
+
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.tooltipped');
+    var instances = M.Tooltip.init(elems, options);
+  });
+=======
 /*document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.fixed-action-btn');
     var instances = M.FloatingActionButton.init(elems, options);
     var elemstool = document.querySelectorAll('.tooltipped');
     var instancestool = M.Tooltip.init(elemstool, options);
 });
+>>>>>>> 65c483d481767495596df1eabdeafb96fb3b7e58
 
 // Or with jQuery
 
+<<<<<<< HEAD
+  $(document).ready(function(){
+    $('.tooltipped').tooltip();
+  });
+=======
 $(document).ready(function () {
     $('.fixed-action-btn').floatingActionButton();
     $('.tooltipped').tooltip();
@@ -266,3 +288,4 @@ fileUpload.addEventListener('change', function (evt) {
     })
 
 });
+>>>>>>> 65c483d481767495596df1eabdeafb96fb3b7e58

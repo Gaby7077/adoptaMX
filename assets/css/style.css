@@ -1,9 +1,19 @@
 
+/* la font usada para el body y todos los textos es font-family: 'Nunito', sans-serif;*/
+/*Estilos general del web*/
 
 .row {
-    margin-top: 50px;
+    margin-top: 150px;
     
 }
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+
 
 main {
   
@@ -12,25 +22,16 @@ main {
     background-size: 30%;
     background-position-y: 20px;
     font-family: 'Nunito', sans-serif;
-    
-    
-
-
 }
 
-body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-    
-    
-  }
+
 
   
 #logo {
     height: 75px;
     width: auto;
     margin-left: 30px;
+    padding-bottom: 20px;
 }
 
 
@@ -58,7 +59,7 @@ body {
 
 .stats {
     margin-left: 250px;
-    margin-top: 180px;
+    margin-top: 250px;
 }
 
 .icons {
@@ -66,18 +67,65 @@ body {
     width: auto;
 }
 
-.nav-wrapper {
-    height: 90px;
-}
 
-header {
-    height: 100px;
-    background: white;
-    border-bottom: 2px solid #777777;
+
+.header {
+    height: 500px;
+    background-color: #eff3ff;
 }
 
 #boton-test {
-    top: 12%;
+    top: 5%;
+}
+
+
+.logo h4 {
+
+    font-size: 80px;
+    text-align: center;
+    font-family: 'Righteous', cursive;
+}
+
+.all-headers {
+    height: 90px;
+    background-color: #eff3ff;
+}
+
+#boton-test2 {
+    top:3%;
+}
+
+
+.nav-wrapper {
+    height: 150px;
+    background-color: #eff3ff;
+    
+}
+
+#fotos {
+    margin-left: 250px;
+    font-family: 'Nunito', sans-serif;
+    margin-bottom: 100px;
+}
+
+.contactanos {
+    width: 960px;
+    margin: auto;
+    background: #ffffff;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    padding: 10px;
+    
+
+}
+
+.social-media {
+    height: 40px;
+    width: auto;
+}
+
+.left {
+    margin-bottom: 60px;
 }
 
 
@@ -143,3 +191,5 @@ header {
   border-radius: 2px 2px 0 0;
   
 }
+
+/*Se acaba el estilo del mapa*/
