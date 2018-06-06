@@ -8,17 +8,18 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Encuentra a tu amigo</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-  <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
   <link rel="stylesheet" href="assets/css/style.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Fira+Sans:400,600|Jua|Montserrat:600,700|Nunito|Righteous|Roboto:400,500"
     rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
 
 </head>
 
 <body>
 
+<<<<<<< HEAD
     <nav>
         <div class="nav-wrapper">
          <a href="index.html" class="brand-logo">
@@ -42,22 +43,46 @@
                   <li><a class="btn-floating tooltipped  blue darken-2" data-position="bottom" data-tooltip="Contacto" href="contact.html"><i class="material-icons">record_voice_over</i></a></li>
                 </ul>
               </div>
+              <main>
+                  <div class="container">
+                    <input City="Address" id="address" type="text" class="validate controls">
+                    <div id="map"></div>
+                    <!--Este div hay que borrarlo despues-->
+                    <div id="divSoloprueba">
+                      <input id="name" type="text" class="validate controls">
+                      <label for="name">Nombre Mascota</label>
+                      <input id="raza" type="text" class="validate controls">
+                      <label for="raza">Raza</label>
+                      <input id="age" type="text" class="validate controls">
+                      <label for="age">Edad</label>
+                      <input id="direccion" type="text" class="validate controls">
+                      <label for="direccion">Address</label>
+                      <br>
+              
+                      <input type="file" accept="image/*" capture="camera" id="cameraInput">
+                      <br>
+                      <br>
+              
+                      
+              
+                    </div>
+                    <!--Borrar hasta aqui-->
+                  </div>
+              
+                </main>
+              
+                <footer class="page-footer blue lighten-3">
+              
+                  <div class="footer-copyright">
+                    <div class="container">
+                      © 2018 Copyright Text
+                      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                    </div>
+                  </div>
+                </footer>
 
 
-    <main>
-        <h1>El mapa va a aqui</h1>
-
-    </main>
-
-    <footer class="page-footer blue lighten-3">
-                   
-            <div class="footer-copyright">
-              <div class="container">
-              © 2018 Copyright Text
-              <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-              </div>
-            </div>
-          </footer>
+ 
           <script>
     
             // Initialize Firebase
@@ -94,15 +119,15 @@
                 window.addEventListener('load', function() {
                   initApp()
                 });
-        
-             
               </script>
-
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    <script src="assets/js/app.js"></script>
-  </body>
+  
+  <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_xDjxKLXCVAJQSpF4KskemtO5q6gOE1U&libraries=places"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
 
 </html>
