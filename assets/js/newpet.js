@@ -13,26 +13,36 @@ $(document).ready(function () {
         messagingSenderId: "1071920552380"
     };
     firebase.initializeApp(config);
-    var database = firebase.database();
+    var uid;
+    var db = firebase.database();
     initApp = function () {
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
-                // User is signed in.
-                var displayName = user.displayName;
-                var email = user.email;
-                var emailVerified = user.emailVerified;
-                var photoURL = user.photoURL;
-                var uid = "prueba" //user.uid;
-                var phoneNumber = user.phoneNumber;
-                var providerData = user.providerData;
-                useruid = user.uid;
-
+                uid = user.uid;
+               db.ref('/usuarios/').child(uid).once("value", function (snapshot) {
+                if (snapshot.exists()) {
+                    console.log("existepo");
+                    console.log(snapshot);
+                    var displayName = snapshot.val().displayName;
+                    var email = snapshot.val().email;
+                    var emailVerified = snapshot.val().emailVerified;
+                    var photoURL = snapshot.val().photoURL;
+                    var uid = snapshot.val().uid;
+                    var phoneNumber = snapshot.val().phoneNumber;
+                    var providerData = snapshot.val().providerData;
+                    var calle = snapshot.val().address.calle;
+                    var colonia = snapshot.val().address.colonia;
+                    var cp = snapshot.val().address.cp;
+                    var estado = snapshot.val().address.estado;
+                    var municipio = snapshot.val().address.municipio;}
                 $("#nombre").val(displayName);
+                $("#celular").val(phoneNumber);
+                $("#labelcelular").addClass("active");
                 $("#nombre").addClass("validate valid");
                 $("#labelnombre").addClass("active");
                 $("#email").val(email);
                 $("#email").addClass("validate valid");
-                $("#labelemail").addClass("active");
+                $("#labelemail").addClass("active");});
 
             } else {
                 // User is signed out.
@@ -99,6 +109,7 @@ $(document).ready(function () {
 
 
 
+
     /////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////
     ////////////// DATABASE NEW PET FORM/////////////////////////
@@ -129,6 +140,8 @@ $(document).ready(function () {
         postalcode = $("#postal_code").val().trim();
         state = $("#administrative_area_level_1").val().trim();
         country = $("#country").val().trim();
+   
+
 
         var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + street + number + "," + postalcode + city + state + "&key=AIzaSyD_vNu93PxnSwg-fnUBnWk_03HuqwqC7Cc"
         $.ajax({
@@ -160,13 +173,15 @@ $(document).ready(function () {
                 celular: celular,
                 email: email,
                 uid: useruid,
+                descripcion: algomas,
             }); //del database
+            window.location.href = 'map.html';
 
         }); //de AJAX
 
 
 
-
+       
 
     }) //Del click
 
