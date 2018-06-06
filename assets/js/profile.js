@@ -35,6 +35,7 @@ initApp = function () {
                     var estado = snapshot.val().address.estado;
                     var municipio = snapshot.val().address.municipio;
 
+                    $(".fotoperfil").attr("src",photoURL);
                     $("#nombre").text("Nombre: " + displayName);
                     $("#correo").text("Correo: " + email);
                     $("#telefono").text("Telefono: "+phoneNumber);
@@ -102,16 +103,10 @@ initApp = function () {
                                 cp:" "
                             },
                             phoneNumber: " ",
-                            photoURL: " ",
+                            photoURL: "assets/images/profiledefault.jpeg",
                             uid: uid,
                             accessToken: accessToken,
                             providerData: providerData
-
-                        });
-
-                        firebase.database().ref().child("pets").child(uid).set({
-                            displayName: displayName,
-                            email: email
 
                         });
 
