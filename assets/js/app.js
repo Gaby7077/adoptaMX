@@ -19,7 +19,7 @@ var marker = [];
 var infowindow;
 var currentLat;
 var currentLng;
-
+/* ESTO HAY QUE BORRARLO
 //Start Firebase database
 var config = {
     apiKey: "AIzaSyBPy8Hgn4T3llG8H-2O2tOGtyRV3GRWpPg",
@@ -30,7 +30,17 @@ var config = {
     messagingSenderId: "234653857834"
 };
 
-firebase.initializeApp(config);
+firebase.initializeApp(config);*/
+
+var config = {
+    apiKey: "AIzaSyC8wpnAhlZtsN2XbywIK2QlWnq7JmM0pQY",
+    authDomain: "muestradb.firebaseapp.com",
+    databaseURL: "https://muestradb.firebaseio.com",
+    projectId: "muestradb",
+    storageBucket: "muestradb.appspot.com",
+    messagingSenderId: "1071920552380"
+  };
+    firebase.initializeApp(config);
 
 var dataRef = firebase.database();
 
@@ -122,9 +132,9 @@ function initMap() {
     });
 
     //To add locations to the map from the databse in Firebase
-    dataRef.ref("/AddChild").on("child_added", function (childSnapshot) {
+    dataRef.ref("/pets").on("child_added", function (childSnapshot) {
         marker = new google.maps.Marker({
-            position: new google.maps.LatLng(childSnapshot.val().Lat, childSnapshot.val().Lng),
+            position: new google.maps.LatLng(childSnapshot.val().lat, childSnapshot.val().lng),
             map: map,
             animation: google.maps.Animation.DROP,
             title: "Tu nuevo amigo"
@@ -132,10 +142,10 @@ function initMap() {
         });
 
         // Gather the variable from the firebase databse
-        var petName = childSnapshot.val().name;
+        var petName = childSnapshot.val().namepet;
         var petRaza = childSnapshot.val().raza;
-        var petAge = childSnapshot.val().age;
-        var petImage = childSnapshot.val().imageurl;
+        var petAge = childSnapshot.val().edad;
+        var petImage = childSnapshot.val().photo;
 
         // Send the info the infowindow
 
@@ -205,7 +215,7 @@ function addInfowindow(petName, petRaza, petAge, petImage) {
 }
 
 
-
+/* BORRAR 
 
 // Codigo para probar jalar los datos de firebase
 // Initialize Firebase
@@ -265,4 +275,4 @@ fileUpload.addEventListener('change', function (evt) {
         }
     })
 
-});
+});*/
