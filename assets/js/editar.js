@@ -1,3 +1,6 @@
+var prueba=null;
+var fotourl="assets/images/profiledefault.jpeg";
+
 var config = {
     apiKey: "AIzaSyC8wpnAhlZtsN2XbywIK2QlWnq7JmM0pQY",
     authDomain: "muestradb.firebaseapp.com",
@@ -16,6 +19,7 @@ console.log(db);
 initApp = function () {
     firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
+           
             uid = user.uid;
             console.log(uid);
             db.ref('/usuarios/').child(uid).once("value", function (snapshot) {
@@ -25,7 +29,7 @@ initApp = function () {
                     var displayName = snapshot.val().displayName;
                     var email = snapshot.val().email;
                     var emailVerified = snapshot.val().emailVerified;
-                    var photoURL = snapshot.val().photoURL;
+                    fotourl = snapshot.val().photoURL;
                     var uid = snapshot.val().uid;
                     var phoneNumber = snapshot.val().phoneNumber;
                     var providerData = snapshot.val().providerData;
@@ -37,7 +41,7 @@ initApp = function () {
 
 
 
-
+                    $(".fotoperfil").attr("src",fotourl);
                     $("#nombre").text(displayName);
                     $("#correo").text(email);
                     $("#calle").text(calle);
@@ -56,7 +60,7 @@ initApp = function () {
                             email: email,
                             emailVerified: emailVerified,
                             phoneNumber: phoneNumber,
-                            photoURL: photoURL,
+                            photoURL: fotourl,
                             uid: uid,
                             accessToken: accessToken,
                             providerData: providerData
@@ -89,7 +93,7 @@ initApp = function () {
                                 cp: nuevocp
                             },
                             phoneNumber: nuevotelefono,
-                            photoURL: " "
+                            photoURL: fotourl
 
                         });
                         window.location.href = 'profile.html';
@@ -102,8 +106,27 @@ initApp = function () {
                         var file = $('.subefoto').get(0).files[0];
                         var name=uid;
                         var task = ref.child("/usarios/"+name).put(file);
-                        //var url= ref.child("/usarios/"+name).downloadURL;
+                        task.on("state_changed", null, function(error){
+                            // error
+                        }, function(snapshot){
+                            // ok
+                            task.snapshot.ref.getDownloadURL().then(function(url){
+                                fotourl=url;
+                                console.log(url);
+                                $(".fotoperfil").attr("src",fotourl);
+                            });
+                        });
 
+                        // task.then(function(snapshot){
+                        //     console.log("llego");
+                        //     prueba=snapshot;
+                        // });
+
+
+
+                        // task.then((prueba=snapshot) => {
+                        //     console.log(snapshot);
+                        // });
 
                     });
 
