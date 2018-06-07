@@ -238,7 +238,6 @@ $('#element').click(function () {
 
 
 $(document).on("click", "#email-button", function () {
-    alert("You click me");
     console.log($(this).attr("petname"));
     var newPetname = $(this).attr("petname");
     var ownerEmail = $(this).attr("ownerEmail");
