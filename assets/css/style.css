@@ -60,7 +60,7 @@ main {
 }
 
 
-.logo h4 {
+h4 {
 
     font-size: 80px;
     text-align: center;
@@ -118,6 +118,13 @@ main {
     height: 250px;
     width: auto;
 }
+
+#logo {
+    height: 64px;
+    width: auto;
+}
+
+
 
 
 /*Estilos usados por el mapa*/
