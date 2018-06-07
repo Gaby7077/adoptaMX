@@ -2,18 +2,18 @@
 
 
 //boton izquierda inicializador
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.fixed-action-btn');
     var instances = M.FloatingActionButton.init(elems, {
-      direction: 'left'
+        direction: 'left'
     });
-  });
+});
 
-  //tooltip
-  document.addEventListener('DOMContentLoaded', function() {
+//tooltip
+document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.tooltipped');
     var instances = M.Tooltip.init(elems, options);
-  });
+});
 
 
 
@@ -138,10 +138,12 @@ function initMap() {
         var petRaza = childSnapshot.val().raza;
         var petAge = childSnapshot.val().edad;
         var petImage = childSnapshot.val().photo;
+        var email = childSnapshot.val().email;
+        var petOwner = childSnapshot.val().owener;
 
         // Send the info the infowindow
 
-        addInfowindow(petName, petRaza, petAge, petImage);
+        addInfowindow(petName, petRaza, petAge, petImage, email,petOwner);
 
 
     })
@@ -156,7 +158,7 @@ function initMap() {
 
 }
 
-function addInfowindow(petName, petRaza, petAge, petImage) {
+function addInfowindow(petName, petRaza, petAge, petImage, email,petOwner) {
     //To add the window
     var containerDiv = $("<div>") // Main Div
     containerDiv.attr("id", "iw-container");
@@ -184,13 +186,17 @@ function addInfowindow(petName, petRaza, petAge, petImage) {
     var firstRowcontent = $("<div>");
     var secondRowcontent = $("<div>");
     var thirdRowcontent = $("<div>");
-    var fourthRowcontent =$("<a>");
-    fourthRowcontent.attr("class","waves-effect waves-light btn light-blue lighten-1");
-    var emailSign=$("<i>");
+    var fourthRowcontent = $("<a>");
+    fourthRowcontent.attr("class", "waves-effect waves-light btn light-blue lighten-1");
+    var emailSign = $("<i>");
     emailSign.addClass("material-icons center");
     emailSign.text("email");
+    fourthRowcontent.attr("petname", petName);
+    fourthRowcontent.attr("ownerEmail", email);
+    fourthRowcontent.attr("ownerName",petOwner)
     fourthRowcontent.append(emailSign);
-    var buttonEmail=$("")
+    fourthRowcontent.attr("id", "email-button");
+    var buttonEmail = $("")
     firstRowcontent.text("Mis datos son: ")
     secondRowcontent.text("Edad: " + petAge);
     thirdRowcontent.text("Raza: " + petRaza)
@@ -205,6 +211,8 @@ function addInfowindow(petName, petRaza, petAge, petImage) {
     infoDiv.append(spaceDiv);
     infoDiv.append(contentDiv);
 
+
+
     var contentString = containerDiv.prop("outerHTML");
     infowindow = new google.maps.InfoWindow()
 
@@ -218,3 +226,29 @@ function addInfowindow(petName, petRaza, petAge, petImage) {
 
 
 
+// Send email asking for info
+
+$('#element').click(function () {
+    $(location).attr('href', 'mailto:?subject='
+        + encodeURIComponent("This is my subject")
+        + "&body="
+        + encodeURIComponent("This is my body")
+    );
+});
+
+
+$(document).on("click", "#email-button", function () {
+    alert("You click me");
+    console.log($(this).attr("petname"));
+    var newPetname = $(this).attr("petname");
+    var ownerEmail = $(this).attr("ownerEmail");
+    var owner=$(this).attr("ownerName");
+    console.log($(this).attr("ownerEmail"));
+    $(location).attr('href', 'mailto:' + ownerEmail + '?subject='
+        + encodeURIComponent("Quisiera adoptar tu perro")
+        + "&body="
+        + encodeURIComponent("Hola " + owner + " estoy interesado en " + newPetname + " me puedes mandar mas informacion.")
+    );
+
+
+})
