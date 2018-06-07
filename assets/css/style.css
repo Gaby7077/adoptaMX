@@ -3,12 +3,12 @@
 /*La font para los titulos es font-family: 'Amatic SC', cursive;
 /*Estilos general del web*/
 
-@media only screen and (max-width: 600px) {
-    /* For mobile phones: */
+/* @media only screen and (max-width: 600px) {
+    /* For mobile phones: 
     [class*="col-"] {
         width: 100%;
     }
-}
+} */
 
 
 body {
