@@ -1,3 +1,22 @@
+//Botones Menu//
+
+
+//boton izquierda inicializador
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.fixed-action-btn');
+    var instances = M.FloatingActionButton.init(elems, {
+      direction: 'left'
+    });
+  });
+
+  //tooltip
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.tooltipped');
+    var instances = M.Tooltip.init(elems, options);
+  });
+
+
+
 //Funcionalidad del Mapa
 // Program variables
 var map;
@@ -194,6 +213,8 @@ function addInfowindow(petName, petRaza, petAge, petImage) {
         infowindow.open(map, this);
     });
 }
+
+
 
 
 
