@@ -3,13 +3,6 @@
 /*La font para los titulos es font-family: 'Amatic SC', cursive;
 /*Estilos general del web*/
 
-/* @media only screen and (max-width: 600px) {
-    /* For mobile phones: 
-    [class*="col-"] {
-        width: 100%;
-    }
-} */
-
 
 body {
     display: flex;
@@ -80,11 +73,19 @@ h4 {
     background-color: #eff3ff;
 }
 
+
+
 #logo-perro {
     height: 250px;
     width: auto;
-
 }
+@media only screen and (min-width:320px){
+    #logo-perro{
+        height:150px;
+        width:auto;
+    }
+}
+
 #rowlogo{
     margin-top: 100px;
 }
@@ -122,10 +123,6 @@ h4 {
     margin-bottom: 60px;
 }
 
-#logo-perro {
-    height: 250px;
-    width: auto;
-}
 
 #logo {
     height: 64px;
