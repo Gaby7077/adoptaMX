@@ -194,6 +194,15 @@ $(document).ready(function () {
                 uid: useruid,
                 descripcion: algomas,
             }); //del database
+           /* var secret = { consumer_key: 'WEDudpRFYr5Qwa2lASwHAJvIj', consumer_secret: 'fLUbUiA1JZvKreOfs7Z76juCLcr7rHujrRMSDiPowSKm4sLWGH', access_token_key: 'JdveHsDo0XLuqzZhuRml75fMFSJJ9jaABgsOeguY3IPcA',access_token_secret: '1001633316708208640-1mkZiIqfbBYZa2EOGCtbHDGSDfyUuq' } 
+            var Twitter = new TwitterPackage(secret); 
+            Twitter.post('statuses/update', 
+            {status: 'twitter.com '}, 
+                function(error, tweet, response){ 
+                if(error){ console.log(error);} 
+                 console.log(tweet); 
+                 console.log(response); 
+            }); // del tweet*/
             window.location.href = 'map.html';
 
         }); //de AJAX
@@ -209,15 +218,6 @@ $(document).ready(function () {
 
 })
 
-
-{
-    "created_at": moment();,
-    "id": 1001633316708208640,
-    "id_str": "1001633316708208640",
-    "text": "Bienbenido "+namepet+", un perrito raza "+raza+". Adoptalo en adoptaMX",
-    "user": {},  
-    "entities": {}
-   }
 
 
 
