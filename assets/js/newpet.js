@@ -108,6 +108,7 @@ $(document).ready(function () {
         })
     })
 
+    /*
     //Code to activate send info button on mobile app
 
     $(document).on("pagebeforecreate",function(){
@@ -115,6 +116,7 @@ $(document).ready(function () {
             $("#add-pet").removeClass("disabled");
                     }
     })
+    */
 
 
     // variables
