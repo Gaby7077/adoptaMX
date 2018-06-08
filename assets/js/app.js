@@ -4,12 +4,14 @@ $(document).ready(function(){
   });
 
 //boton izquierda inicializador
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.fixed-action-btn');
     var instances = M.FloatingActionButton.init(elems, {
-        direction: 'left'
+      direction: 'bottom',
+      hoverEnabled: false
     });
-});
+  });
+       
 
 //tooltip
 document.addEventListener('DOMContentLoaded', function () {

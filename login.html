@@ -27,6 +27,7 @@
     <div id="login-ui"></div>
 </body>
 <script>
+
     // FirebaseUI config.
     initApp = function() {
                   firebase.auth().onAuthStateChanged(function(user) {
@@ -60,6 +61,8 @@
                 window.addEventListener('load', function() {
                   initApp()
                 });
-   
+
+
 </script>
+
 </html>
