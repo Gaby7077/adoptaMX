@@ -100,14 +100,23 @@ $(document).ready(function () {
                 storageRef.getDownloadURL().then(function (url) {
                     console.log("Esta es la imagen " + url);
                     imageurl = url;
-                    $("#add-pet").removeClass("disabled");
+                    $("#add-pet").removeAttr("class","disabled");
+                    $("#add-pet").attr("class","btn waves-effect waves-light blue lighten-2")
                 })
             }
 
         })
     })
 
+    //Code to activate send info button on mobile app
+/*
+    $(document).on("pagebeforecreate",function(){
+        if($(window).width()<960){
+            $("#add-pet").removeClass("disabled");
+        }
+    })
 
+*/
     // variables
 
     var nameuser = "";
