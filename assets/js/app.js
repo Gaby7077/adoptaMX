@@ -3,7 +3,7 @@ $(document).ready(function(){
     $('.tooltipped').tooltip();
   });
 
-//boton izquierda inicializador
+//boton bottom inicializador
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.fixed-action-btn');
     var instances = M.FloatingActionButton.init(elems, {
