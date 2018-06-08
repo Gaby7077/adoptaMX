@@ -60,7 +60,7 @@ initApp = function () {
                     $("#nombre").text("Nombre: " + displayName);
                     $("#correo").text("Correo: " + email);
                     $("#telefono").text("Telefono: "+phoneNumber);
-                    $("#direccion").text("Dirección: "+calle+", "+ colonia+" ,"+ municipio+" ,"+ estado);
+                    $("#direccion").text("Dirección: "+calle+" "+ colonia+" "+ municipio+" "+ estado);
 
 
                     user.getIdToken().then(function (accessToken) {
