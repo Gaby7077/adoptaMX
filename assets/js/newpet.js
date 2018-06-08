@@ -97,13 +97,12 @@ $(document).ready(function () {
             $("#progressbar").width(percentage + "%");
             console.log(percentage)
             if (percentage == 100) {
-                 $("#add-pet").removeAttr("class","disabled");
-                 $("#add-pet").attr("class","btn waves-effect waves-light blue lighten-2")
                 console.log("ya estoy al 100")
                 storageRef.getDownloadURL().then(function (url) {
                     console.log("Esta es la imagen " + url);
                     imageurl = url;
-
+                 $("#add-pet").removeAttr("class","disabled");
+                 $("#add-pet").attr("class","btn waves-effect waves-light blue lighten-2")
                 })
             }
 
