@@ -97,6 +97,7 @@ $(document).ready(function () {
             console.log(percentage)
             if (percentage == 100) {
                 console.log("ya estoy al 100")
+                alert("Upload ready");
                 storageRef.getDownloadURL().then(function (url) {
                     console.log("Esta es la imagen " + url);
                     imageurl = url;
