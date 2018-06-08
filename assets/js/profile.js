@@ -1,5 +1,7 @@
 //Botones Menu//
-
+$(document).ready(function(){
+    $('.tooltipped').tooltip();
+  });
 
 //boton izquierda inicializador
 document.addEventListener('DOMContentLoaded', function() {

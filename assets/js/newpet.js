@@ -1,19 +1,21 @@
 //Botones Menu//
-
+$(document).ready(function () {
+    $('.tooltipped').tooltip();
+});
 
 //boton izquierda inicializador
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.fixed-action-btn');
     var instances = M.FloatingActionButton.init(elems, {
-      direction: 'bottom'
+        direction: 'bottom'
     });
-  });
+});
 
-  //tooltip
-  document.addEventListener('DOMContentLoaded', function() {
+//tooltip
+document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.tooltipped');
     var instances = M.Tooltip.init(elems, options);
-  });
+});
 
 
 
@@ -38,38 +40,38 @@ $(document).ready(function () {
         firebase.auth().onAuthStateChanged(function (user) {
             if (user) {
                 uid = user.uid;
-               db.ref('/usuarios/').child(uid).once("value", function (snapshot) {
-                if (snapshot.exists()) {
-                    console.log("existepo");
-                    console.log(snapshot);
-                    var displayName = snapshot.val().displayName;
-                    var email = snapshot.val().email;
-                    var emailVerified = snapshot.val().emailVerified;
-                    var photoURL = snapshot.val().photoURL;
-                    var uid = snapshot.val().uid;
-                    var phoneNumber = snapshot.val().phoneNumber;
-                    var providerData = snapshot.val().providerData;
-                    var calle = snapshot.val().address.calle;
-                    var colonia = snapshot.val().address.colonia;
-                    var cp = snapshot.val().address.cp;
-                    var estado = snapshot.val().address.estado;
-                    var municipio = snapshot.val().address.municipio;}
-                $("#nombre").val(displayName);
-                $("#celular").val(phoneNumber);
-                $("#labelcelular").addClass("active");
-                $("#nombre").addClass("validate valid");
-                $("#labelnombre").addClass("active");
-                $("#email").val(email);
-                $("#email").addClass("validate valid");
-                $("#labelemail").addClass("active");});
+                db.ref('/usuarios/').child(uid).once("value", function (snapshot) {
+                    if (snapshot.exists()) {
+                        console.log("existepo");
+                        console.log(snapshot);
+                        var displayName = snapshot.val().displayName;
+                        var email = snapshot.val().email;
+                        var emailVerified = snapshot.val().emailVerified;
+                        var photoURL = snapshot.val().photoURL;
+                        var uid = snapshot.val().uid;
+                        var phoneNumber = snapshot.val().phoneNumber;
+                        var providerData = snapshot.val().providerData;
+                        var calle = snapshot.val().address.calle;
+                        var colonia = snapshot.val().address.colonia;
+                        var cp = snapshot.val().address.cp;
+                        var estado = snapshot.val().address.estado;
+                        var municipio = snapshot.val().address.municipio;
+                    }
+                    $("#nombre").val(displayName);
+                    $("#celular").val(phoneNumber);
+                    $("#labelcelular").addClass("active");
+                    $("#nombre").addClass("validate valid");
+                    $("#labelnombre").addClass("active");
+                    $("#email").val(email);
+                    $("#email").addClass("validate valid");
+                    $("#labelemail").addClass("active");
+                });
 
             } else {
                 // User is signed out.
                 console.log("-- User Signed Out --");
                 window.location.href = 'login.html';
-                //document.getElementById('sign-in-status').textContent = 'Signed out';
-                //document.getElementById('sign-in').textContent = 'Sign in';
-                //document.getElementById('account-details').textContent = 'null';
+                
             }
         }, function (error) {
             console.log(error);
@@ -82,28 +84,29 @@ $(document).ready(function () {
 
 
     // code to upload picture
-    
-        var fileUpload = document.getElementById("pet_image");
-        fileUpload.addEventListener('change', function (evt) {
-            console.log("subir imagen")
-            var firstFile = evt.target.files[0] // upload the first file only
-            var storageRef = firebase.storage().ref('photos/myPictureName ' + useruid + firstFile.name)
-            var uploadTask = storageRef.put(firstFile)
-            uploadTask.on("state_changed", function (snapshot) {
-                var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                console.log(percentage)
-                if (percentage == 100) {
-                    console.log("ya estoy al 100")
-                    storageRef.getDownloadURL().then(function (url) {
-                        console.log("Esta es la imagen " + url);
-                        imageurl = url;
-                        $("#add-pet").removeClass("disabled");
-                    })
-                }
 
-            })
+    var fileUpload = document.getElementById("pet_image");
+    fileUpload.addEventListener('change', function (evt) {
+        console.log("subir imagen")
+        var firstFile = evt.target.files[0] // upload the first file only
+        var storageRef = firebase.storage().ref('photos/myPictureName ' + useruid + firstFile.name)
+        var uploadTask = storageRef.put(firstFile)
+        uploadTask.on("state_changed", function (snapshot) {
+            var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            $("#progressbar").width(percentage + "%");
+            console.log(percentage)
+            if (percentage == 100) {
+                console.log("ya estoy al 100")
+                storageRef.getDownloadURL().then(function (url) {
+                    console.log("Esta es la imagen " + url);
+                    imageurl = url;
+                    $("#add-pet").removeClass("disabled");
+                })
+            }
+
         })
-    
+    })
+
 
     // variables
 
@@ -159,7 +162,7 @@ $(document).ready(function () {
         postalcode = $("#postal_code").val().trim();
         state = $("#administrative_area_level_1").val().trim();
         country = $("#country").val().trim();
-   
+
 
 
         var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + street + number + "," + postalcode + city + state + "&key=AIzaSyD_vNu93PxnSwg-fnUBnWk_03HuqwqC7Cc"
@@ -194,28 +197,9 @@ $(document).ready(function () {
                 uid: useruid,
                 descripcion: algomas,
             }); //del database
-           /* var secret = { consumer_key: 'WEDudpRFYr5Qwa2lASwHAJvIj', consumer_secret: 'fLUbUiA1JZvKreOfs7Z76juCLcr7rHujrRMSDiPowSKm4sLWGH', access_token_key: 'JdveHsDo0XLuqzZhuRml75fMFSJJ9jaABgsOeguY3IPcA',access_token_secret: '1001633316708208640-1mkZiIqfbBYZa2EOGCtbHDGSDfyUuq' } 
-            var Twitter = new TwitterPackage(secret); 
-            Twitter.post('statuses/update', 
-            {status: 'twitter.com '}, 
-                function(error, tweet, response){ 
-                if(error){ console.log(error);} 
-                 console.log(tweet); 
-                 console.log(response); 
-            }); // del tweet*/
             window.location.href = 'map.html';
-
         }); //de AJAX
-
-
-
-       
-
     }) //Del click
-
-
-
-
 })
 
 
@@ -294,27 +278,5 @@ function geolocate() {
     }
 }
 
-$("#postal_code").on("input", function (event) {
-    event.preventDefault();
-    var street = $("#route").val().trim();
-    var number = $("#street_number").val().trim();
-    var city = $("#locality").val().trim();
-    var postalcode = $("#postal_code").val().trim();
-    var state = $("#administrative_area_level_1").val().trim();
-    var country = $("#country").val().trim();
 
-    if (postalcode.length == 5) {
-        console.log(street + number + postalcode + city + state + country);
-        var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + street + number + "," + postalcode + city + state + "&key=AIzaSyD_vNu93PxnSwg-fnUBnWk_03HuqwqC7Cc"
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(function (response) {
-            console.log(response);
-        });
-    }
-
-
-
-});
 
