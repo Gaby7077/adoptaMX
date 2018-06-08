@@ -173,11 +173,14 @@ h4 {
 #infoStyle{
   height: 60px;
   margin-top:20px;
+  font-family:"Amatic SC";
+  font-size: 15px;
+  font-weight: 600;
 }
 
 #iw-container  .iw-title {
-  font-family: 'Open Sans Condensed', sans-serif;
-  font-size: 22px;
+  font-family: 'Amatic SC', sans-serif;
+  font-size: 34px;
   font-weight: 600;
   padding: 10px;
   background-color: #48b5e9;
@@ -194,6 +197,8 @@ h4 {
   border-radius: 2px 2px 0 0;
   
 }
+
+
 
 /*Se acaba el estilo del mapa*/
 
