@@ -109,14 +109,14 @@ $(document).ready(function () {
     })
 
     //Code to activate send info button on mobile app
-/*
+
     $(document).on("pagebeforecreate",function(){
         if($(window).width()<960){
             $("#add-pet").removeClass("disabled");
-        }
+                    }
     })
 
-*/
+
     // variables
 
     var nameuser = "";
